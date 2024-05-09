@@ -13,6 +13,8 @@ public partial class GiaoVien
 
     public string? Cccd { get; set; }
 
+    public string? SoDienThoai { get; set; }
+
     public string? Khoa { get; set; }
 
     public string? MatKhau { get; set; }

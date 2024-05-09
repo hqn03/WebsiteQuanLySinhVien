@@ -39,7 +39,7 @@ public partial class DbQuanLySinhVienContext : DbContext
     {
         modelBuilder.Entity<GiaoVien>(entity =>
         {
-            entity.HasKey(e => e.MaGiaoVien).HasName("PK__GiaoVien__8D374F50A84134A0");
+            entity.HasKey(e => e.MaGiaoVien).HasName("PK__GiaoVien__8D374F50DF78744B");
 
             entity.ToTable("GiaoVien");
 
@@ -56,6 +56,9 @@ public partial class DbQuanLySinhVienContext : DbContext
             entity.Property(e => e.MatKhau)
                 .HasMaxLength(30)
                 .IsUnicode(false);
+            entity.Property(e => e.SoDienThoai)
+                .HasMaxLength(12)
+                .IsUnicode(false);
 
             entity.HasOne(d => d.KhoaNavigation).WithMany(p => p.GiaoViens)
                 .HasForeignKey(d => d.Khoa)
@@ -64,7 +67,7 @@ public partial class DbQuanLySinhVienContext : DbContext
 
         modelBuilder.Entity<HocKy>(entity =>
         {
-            entity.HasKey(e => e.MaHocKy).HasName("PK__HocKy__1EB551101D7457C8");
+            entity.HasKey(e => e.MaHocKy).HasName("PK__HocKy__1EB551106D5BFC8B");
 
             entity.ToTable("HocKy");
 
@@ -80,7 +83,7 @@ public partial class DbQuanLySinhVienContext : DbContext
 
         modelBuilder.Entity<HocPhan>(entity =>
         {
-            entity.HasKey(e => e.MaHocPhan).HasName("PK__HocPhan__9A13F25E012B2F64");
+            entity.HasKey(e => e.MaHocPhan).HasName("PK__HocPhan__9A13F25E93838ED8");
 
             entity.ToTable("HocPhan");
 
@@ -101,7 +104,7 @@ public partial class DbQuanLySinhVienContext : DbContext
 
         modelBuilder.Entity<Khoa>(entity =>
         {
-            entity.HasKey(e => e.MaKhoa).HasName("PK__Khoa__65390405C9C75112");
+            entity.HasKey(e => e.MaKhoa).HasName("PK__Khoa__65390405B5B7323E");
 
             entity.ToTable("Khoa");
 
@@ -113,7 +116,7 @@ public partial class DbQuanLySinhVienContext : DbContext
 
         modelBuilder.Entity<LopHocPhan>(entity =>
         {
-            entity.HasKey(e => e.MaLopHocPhan).HasName("PK__LopHocPh__82581CD9C4EA1D93");
+            entity.HasKey(e => e.MaLopHocPhan).HasName("PK__LopHocPh__82581CD9D9F5E8E2");
 
             entity.ToTable("LopHocPhan");
 
@@ -135,7 +138,7 @@ public partial class DbQuanLySinhVienContext : DbContext
 
         modelBuilder.Entity<LopHocPhanSinhVien>(entity =>
         {
-            entity.HasKey(e => new { e.MaSinhVien, e.MaLopHocPhan, e.HocKy }).HasName("PK__LopHocPh__FE94D68ABB60336A");
+            entity.HasKey(e => new { e.MaSinhVien, e.MaLopHocPhan, e.HocKy }).HasName("PK__LopHocPh__FE94D68A7EDE59A6");
 
             entity.ToTable("LopHocPhan_SinhVien");
 
@@ -174,7 +177,7 @@ public partial class DbQuanLySinhVienContext : DbContext
 
         modelBuilder.Entity<LopSinhHoat>(entity =>
         {
-            entity.HasKey(e => e.MaLop).HasName("PK__LopSinhH__3B98D273707A459C");
+            entity.HasKey(e => e.MaLop).HasName("PK__LopSinhH__3B98D273C8825EC2");
 
             entity.ToTable("LopSinhHoat");
 
@@ -190,7 +193,7 @@ public partial class DbQuanLySinhVienContext : DbContext
 
         modelBuilder.Entity<SinhVien>(entity =>
         {
-            entity.HasKey(e => e.MaSinhVien).HasName("PK__SinhVien__939AE775036D36EA");
+            entity.HasKey(e => e.MaSinhVien).HasName("PK__SinhVien__939AE775527A7594");
 
             entity.ToTable("SinhVien");
 
@@ -209,6 +212,9 @@ public partial class DbQuanLySinhVienContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.MatKhau)
                 .HasMaxLength(30)
+                .IsUnicode(false);
+            entity.Property(e => e.SoDienThoai)
+                .HasMaxLength(12)
                 .IsUnicode(false);
 
             entity.HasOne(d => d.LopSinhHoatNavigation).WithMany(p => p.SinhViens)
