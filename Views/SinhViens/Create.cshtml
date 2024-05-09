@@ -1,0 +1,67 @@
+﻿@model WebsiteQuanLySinhVien.Models.SinhVien
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>SinhVien</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="HoTen" class="control-label"></label>
+                <input asp-for="HoTen" class="form-control" />
+                <span asp-validation-for="HoTen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgaySinh" class="control-label"></label>
+                <input asp-for="NgaySinh" class="form-control" />
+                <span asp-validation-for="NgaySinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cccd" class="control-label"></label>
+                <input asp-for="Cccd" class="form-control" />
+                <span asp-validation-for="Cccd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LopSinhHoat" class="control-label"></label>
+                <select asp-for="LopSinhHoat" class ="form-control" asp-items="ViewBag.LopSinhHoat"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HinhAnhSinhVien" class="control-label"></label>
+                <input asp-for="HinhAnhSinhVien" class="form-control" type="file" accept="image/*" />
+                <span asp-validation-for="HinhAnhSinhVien" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HinhAnhTheSinhVien" class="control-label"></label>
+                <input asp-for="HinhAnhTheSinhVien" class="form-control" type="file" accept="image/*" />
+                <span asp-validation-for="HinhAnhTheSinhVien" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HinhAnhCccd" class="control-label"></label>
+                <input asp-for="HinhAnhCccd" class="form-control" type="file" accept="image/*" />
+                <span asp-validation-for="HinhAnhCccd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatKhau" class="control-label"></label>
+                <input asp-for="MatKhau" class="form-control" />
+                <span asp-validation-for="MatKhau" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
